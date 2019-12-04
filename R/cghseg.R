@@ -9,7 +9,7 @@ ClassiSeg <- function(geno, grille, Kmax){
 	nRow <- length(geno)
 	nGrille <- length(grille)
       	### Appel C
-	A <- .C("ClassiSeg",as.double(geno), as.integer(nRow), as.integer(Kmax),  res1=double(Kmax*nRow), res2=integer(Kmax*nRow), as.integer(nGrille), moyennes=as.double(grille), PACKAGE="cghseg")
+	A <- .C("ClassiSeg_cc",as.double(geno), as.integer(nRow), as.integer(Kmax),  res1=double(Kmax*nRow), res2=integer(Kmax*nRow), as.integer(nGrille), moyennes=as.double(grille), PACKAGE="cghseg")
 	A$res1 <- matrix(A$res1, nrow=Kmax, byrow=TRUE)
 	A$res2 <- matrix(A$res2, nrow=Kmax, byrow=TRUE)
 	n <- ncol(A$res1)
@@ -52,7 +52,7 @@ ClassiSeg_ <- function(geno, grille, Kmax){
 	nRow <- length(geno)
 	nGrille <- length(grille)
       	### Appel C
-	A <- .C("ClassiSeg",as.double(geno), as.integer(nRow), as.integer(Kmax),  res1=double(Kmax*nRow), res2=integer(Kmax*nRow), as.integer(nGrille), moyennes=as.double(grille), PACKAGE="cghseg")
+	A <- .C("ClassiSeg_cc",as.double(geno), as.integer(nRow), as.integer(Kmax),  res1=double(Kmax*nRow), res2=integer(Kmax*nRow), as.integer(nGrille), moyennes=as.double(grille), PACKAGE="cghseg")
 	A$res1 <- matrix(A$res1, nrow=Kmax, byrow=TRUE)
 	A$res2 <- matrix(A$res2, nrow=Kmax, byrow=TRUE)
 	return(A)
@@ -71,7 +71,7 @@ ClassiSeg_2_ <- function(geno, grille, Kmax, logP, variance){
 } 
 colibriR_c <- function(signalBruite, Kmax, mini=min(signalBruite), maxi=max(signalBruite)){
 	n <- length(signalBruite)
-    A <- .C("colibriR_c", signal=as.double(signalBruite), n=as.integer(n), Kmax=as.integer(Kmax),   min=as.double(mini), max=as.double(maxi), path=integer(Kmax*n), cost=double(Kmax)
+    A <- .C("colibriR_cc", signal=as.double(signalBruite), n=as.integer(n), Kmax=as.integer(Kmax),   min=as.double(mini), max=as.double(maxi), path=integer(Kmax*n), cost=double(Kmax)
 	, PACKAGE="cghseg")
     A$path <- matrix(A$path, nrow=Kmax, byrow=T)
     A$cost <- A$cost + sum(signalBruite^2)
@@ -79,12 +79,12 @@ colibriR_c <- function(signalBruite, Kmax, mini=min(signalBruite), maxi=max(sign
 } 
 
 meanRuptR_c <- function(Ym, rupt, k){
-	A <- .C("meanRuptR_c", data=as.double(Ym), position=as.integer(rupt), k=as.integer(k), res=double(k), PACKAGE="cghseg")	
+	A <- .C("meanRuptR_cc", data=as.double(Ym), position=as.integer(rupt), k=as.integer(k), res=double(k), PACKAGE="cghseg")	
 	return(A$res)
 }
 
 meansqRuptR_c <- function(Ym, rupt, k){
-	A <- .C("meansqRuptR_c", data=as.double(Ym), position=as.integer(rupt), k=as.integer(k), res=double(k), PACKAGE="cghseg")	
+	A <- .C("meansqRuptR_cc", data=as.double(Ym), position=as.integer(rupt), k=as.integer(k), res=double(k), PACKAGE="cghseg")	
 	return(A$res)
 }
 

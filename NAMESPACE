@@ -2,7 +2,7 @@ import(methods,parallel)
 importFrom("stats", "lm", "p.adjust", "pnorm", "rnorm", "rpois",
            "runif", "smooth.spline")
 
-useDynLib(cghseg)
+useDynLib(cghseg, .registration=TRUE)
 exportClasses(CGHdata,CGHoptions,CGHresults)
 exportMethods("initialize")
 exportMethods("[")
