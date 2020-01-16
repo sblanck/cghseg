@@ -25,7 +25,7 @@ ClassiSeg <- function(geno, grille, Kmax){
 	return(list(J.est=A$res1[,Kmax],t.est=res3))
 	} 
 ### logP = donner -logProba du melange
-### variance = variance du modèle
+### variance = variance du modele
 ClassiSeg_2 <- function(geno, grille, Kmax, logP, variance){
 	nRow <- length(geno)
 	nGrille <- length(grille)
