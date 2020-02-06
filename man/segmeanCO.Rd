@@ -5,10 +5,10 @@
 \usage{segmeanCO(geno, Kmax)}
 \arguments{
   \item{geno}{profile}
-  \item{Kmax}{Maximu number of segments}
+  \item{Kmax}{Maximum number of segments}
 }
 \value{
-  \item{CGHr}{List}
+  \item{List}{list of breakpoints}
 }
 \keyword{methods}
 
