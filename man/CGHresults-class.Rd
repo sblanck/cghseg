@@ -48,11 +48,5 @@ CGHo           = new("CGHoptions")
 CGHr           = multiseg(CGHd,CGHo)
 bplist         = getbp(CGHr)
 segprofiles    = getsegprofiles(CGHr)
-
-#calling(CGHo)  = TRUE
-#CGHr           = multiseg(CGHd,CGHo)
-#bplist         = getbp(CGHr)
-#levelslist     = getlevels(CGHr)
-#segprofiles    = getsegprofiles(CGHr)
 }
 \keyword{classes}
