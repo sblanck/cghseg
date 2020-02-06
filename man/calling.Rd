@@ -17,7 +17,6 @@ simul         = simulprofiles(M=5,n=100,k.mean=2,SNR=5,lambda=1)
 CGHd          = new("CGHdata",Y=simul$Y)
 CGHo          = new("CGHoptions")
 calling(CGHo) = TRUE
-CGHr          = multiseg(CGHd,CGHo)
 }
 \seealso{nblevels}
 \references{Joint segmentation, calling and normalization of multiple CGH profiles, Biostatistics (2011)}
