@@ -1,9 +1,9 @@
 Package: cghseg
 Type: Package
 Title: Segmentation Methods for Array CGH Analysis
-Version: 1.0.5
+Version: 1.0.6
 Depends: methods, parallel
-Date: 2020-02-06
+Date: 2020-03-31
 Author: Franck Picard, Mark Hoebeke, Emilie Lebarbier, Vincent Miele,
         Guillem Rigaill, Stephane Robin
 Maintainer: Samuel Blanck <samuel.blanck@univ-lille.fr>
